@@ -3,10 +3,9 @@ const Express = require('express');
 const app = Express();
 const bodyParser = require('body-parser');
 const Bank = require('./middleware');
-let account = new Bank(200);
+let account = new Bank();
 
-let saving  = 'saving';
-let checking = 'checking';
+
 
 app.use((resquest, response, next) => {
   response.header('Access-Control-Allow-Origin', '*');

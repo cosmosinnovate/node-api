@@ -1,5 +1,26 @@
 /*jshint esversion: 6 */
+
+/***************************
+ Author Taban Cosmos
+
+ Bank class:
+    fields:
+    -------------------
+    Checking
+    savings
+
+    propertities:
+    ------------------------
+     setIntitialAmount
+     withdraw
+     transfer
+     deposit
+     balance
+     saving
+*******************************/
+
 class Bank {
+
   constructor(amount=0) {
     this.checking = amount;
     this.savings = 0;
