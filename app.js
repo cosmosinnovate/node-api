@@ -22,14 +22,15 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/json' }));
 
 
-app.get('/', (request, response) => {
-   response.status(200).send('sucker');
+app.get('/test', (request, response) => {
+   response.status(500).send({'message': 'sucker man'});
 });
+
 
 app.post('/deposit', (request, response) => {
   /// call the middleware here | deposite functionality
   response.status(200).send({'deposit': account.deposit(parseInt(request.body.deposit), request.body.accountType)});
-
+  
 });
 
 app.post('/withdraw', (request, response) => {
@@ -53,10 +54,6 @@ app.get('/balance', (request, response) => {
   /// call the middleware here | balance functionality
   response.status(200).send({'balance': account.balance()});
 
-});
-
-app.get('/test', (request, response) => {
-   response.status(500).send({'message': 'sucker man'});
 });
 
 let server = app.listen(8000, () => {
