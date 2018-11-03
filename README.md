@@ -18,28 +18,26 @@ Apis are __endpoints__ interacts with the __client side__ and the __database__.
 
 ### EndPoints
 ```javascript
-  app.get('/accounts', (request, response) => {
+app.get('/accounts', (request, response) => {
     /// TODO:
  });
 
- app.post('/deposit', (request, response) => {
+app.post('/deposit', (request, response) => {
    /// TODO:
  })
- app.post('/transfer', (request, response) => {
-   /// TODO:
- })
-
- app.post('/withdraw', (request, response) => {
+app.post('/transfer', (request, response) => {
    /// TODO:
  })
 
- app.post('/balance', (request, response) => {
+app.post('/withdraw', (request, response) => {
+   /// TODO:
+ })
+
+app.post('/balance', (request, response) => {
    /// TODO:
  })
 
 ```
-
-
 
 ## Middleware
 The business logics or the class etc.
@@ -47,7 +45,30 @@ This design is a way to get started quickly but obviously __not__ the best way t
 [Middleware](https://github.com/Cosmos-it/node-api/blob/master/middleware.js)
 
 ### Bank class:
+```javascript
+class Bank {
+  constructor(amount = 0) {
+    this.accountId = 0;
+    this.checking = amount;
+    this.saving = 0;
+  }
 
+  /// Add initial amount
+  /// Banks usually starts an accont minimal $200 - 500 (if you are /// rich then cool beans)
+  setIntitialAmount() { }
+
+  /// Move money from one account to another
+  transfer(amount, accountType) {}
+
+  /// Add money to any account you would like
+  deposit(amount, accountType) {}
+
+  /// Check your balance
+  balance(accountType) {}
+
+}
+
+```
 
 ## UnitTests'
 This is where you can start to test your middleware and/api routes to get the right responses.
