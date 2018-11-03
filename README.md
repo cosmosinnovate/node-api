@@ -54,9 +54,11 @@ class Bank {
   }
 
   setIntitialAmount(amount) {
-    /// Add initial amount
-    /// Banks usually starts an account minimal $200 - 500 (if you are /// rich then cool beans)
-    /// Checking accountType = Checking | saving
+    /**
+      * Banks usually starts an account a minimum of $200 - 500 (if you are
+      * rich then cool beans)
+      * Checking accountType = Checking | saving
+      **/
   }
 
   transfer(amount, accountType) {
@@ -74,11 +76,45 @@ class Bank {
 
 ```
 
-## UnitTests'
-This is where you can start to test your middleware and/api routes to get the right responses.
+## UnitTests
+This is where you can start to test your middleware and/api routes.
 [UnitTests](https://github.com/Cosmos-it/node-api/blob/master/spec/app.spec.js)
 
 ### UnitTests
+Modules required to make test happen
+* request
+* middleware
+
+``` javascript
+
+describe('Bank testing', () => {
+  let saving = 'saving';
+  let checking = 'checking';
+
+  beforeAll((done) => {
+     /// account.setIntitialAmount(200);
+    done();
+  });
+
+  it('Transfer funds', () => {
+    //expect(account.transfer(20, checking)).toBe('Successful transfer');
+  });
+
+  it('Desposite funds', () => {
+    /// expect(account.deposite(90, saving)).toBe('Successful deposite');
+  });
+
+  it('withdraw funds', () => {
+    /// expect(account.withdraw(50, checking)).toBe('Successful');
+  });
+
+  it('Bank balance', () => {
+    /// console.log('Checking: ' + account.balance() + ' Savings: ' + account.saving());
+  });
+});
+
+```
+
 
 
 ## How to run and test this project:
