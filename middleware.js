@@ -1,13 +1,15 @@
 /*jshint esversion: 6 */
 
 /***************************
- Author Taban Cosmos
+ @author Taban Cosmos
+ @date
 
  Bank class:
     fields:
     -------------------
-    Checking
+    checking
     savings
+    accountId
 
     propertities:
     ------------------------
@@ -22,6 +24,7 @@
 class Bank {
 
   constructor(amount=0) {
+    this.accountId = null;
     this.checking = amount;
     this.savings = 0;
   }

@@ -53,19 +53,23 @@ class Bank {
     this.saving = 0;
   }
 
-  /// Add initial amount
-  /// Banks usually starts an accont minimal $200 - 500 (if you are /// rich then cool beans)
-  setIntitialAmount() { }
+  setIntitialAmount(amount) {
+    /// Add initial amount
+    /// Banks usually starts an account minimal $200 - 500 (if you are /// rich then cool beans)
+    /// Checking accountType = Checking | saving
+  }
 
-  /// Move money from one account to another
-  transfer(amount, accountType) {}
+  transfer(amount, accountType) {
+    /// Move money from one account to another
+  }
 
-  /// Add money to any account you would like
-  deposit(amount, accountType) {}
+  deposit(amount, accountType) {
+    /// Add money to any account you would like
+  }
 
-  /// Check your balance
-  balance(accountType) {}
-
+  balance(accountType) {
+    /// Check your balance
+  }
 }
 
 ```
