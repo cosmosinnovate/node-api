@@ -6,8 +6,7 @@ const Bank = require('./middleware');
 let account = new Bank();
 
 
-
-app.use((resquest, response, next) => {
+app.use((request, response, next) => {
   response.header('Access-Control-Allow-Origin', '*');
   response.header(
     'Access-Control-Allow-Headers',
@@ -16,6 +15,7 @@ app.use((resquest, response, next) => {
   next();
 });
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
@@ -23,26 +23,31 @@ app.use(bodyParser.json({ type: 'application/json' }));
 
 
 app.get('/test', (request, response) => {
-   response.status(500).send({'message': 'sucker man'});
+   response.status(500).json({'message': 'sucker man'});
 });
 
 
 app.post('/deposit', (request, response) => {
   /// call the middleware here | deposite functionality
-  response.status(200).send({'deposit': account.deposit(parseInt(request.body.deposit), request.body.accountType)});
-  
+  response.status(200).json(
+    {
+      'deposit': account.deposit(parseInt(request.body.deposit), request.body.accountType)
+    });
+
 });
 
 app.post('/withdraw', (request, response) => {
   /// call middleware here withdraw functionality
-  response.status(200).send({'withdraw': account.withdraw(parseInt(request.body.withdraw), request.body.accountType)});
+  response.status(200).json(
+    {
+      'withdraw': account.withdraw(parseInt(request.body.withdraw), request.body.accountType)
+    });
 
 });
 
 app.post('/transfer', (request, response) => {
   /// call middleware here | transfer funds functionality
-  console.log(request.body.transfer, request.body.accountType);
-  response.status(200).send(
+  response.status(200).json(
     {
       'transfer': account.transfer(parseInt(request.body.transfer), request.body.accountType)
     }
@@ -52,12 +57,18 @@ app.post('/transfer', (request, response) => {
 
 app.get('/balance', (request, response) => {
   /// call the middleware here | balance functionality
-  response.status(200).send({'balance': account.balance()});
+  console.log(request.query);
+  response.status(200).json(
+    {
+      'balance': account.balance(request.query.accountType)
+    });
 
 });
 
-let server = app.listen(8000, () => {
-   console.log('Listening on port' + server.address().port + '...');
+const PORT = process.env.PORT || 8000;
+
+let server = app.listen(PORT, () => {
+   console.log('Listening on port: ' + server.address().port + '...');
 });
 
 

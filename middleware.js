@@ -23,7 +23,7 @@
 
 class Bank {
 
-  constructor(amount=0) {
+  constructor(amount = 0) {
     this.accountId = null;
     this.checking = amount;
     this.savings = 0;
@@ -63,14 +63,26 @@ class Bank {
     return this.savings;
   }
 
-  balance() {
-    /// check checking checking | saving account
-    return this.checking;
+  balance(accountType) {
+    /// check checking checking | saving account\
+    let result = "Error";
+
+    if (accountType === 'checking') {
+      return this.checking;
+    }
+
+    if (accountType === "saving") {
+      return this.savings;
+    }
+
+    return result;
   }
+
 
   transfer(amount, acctType) {
     /// Transfer money to another account
-    let result;
+    let result = "Error";
+
     if (acctType === 'checking') {
       if (amount > this.checking) {
         result = 'Insufficient funds';
@@ -78,7 +90,7 @@ class Bank {
       if (amount < this.checking) {
         this.checking += amount;
         this.savings -= amount;
-        result ='Successful transfer';
+        return 'Successful transfer to checking';
       }
     }
 
@@ -89,16 +101,28 @@ class Bank {
       if (amount < this.savings) {
         this.savings += amount;
         this.checking -= amount;
-        result = 'Successful transfer';
+        return 'Successful transfer to savings';
       }
     }
     return result;
   }
 
-  deposit(amount, acctType) {
+  deposit(amount, accountType) {
     /// deposit money to either saving | checking account
-      this.checking += amount;
-      return 'Successful deposit';
+    let result = "Error";
+    console.log(amount, accountType);
+
+    if (accountType === 'checking') {
+        this.checking += amount;
+        return "Checking account: " + amount + "deposit";
+    }
+
+    if (accountType === 'saving')  {
+      this.savings += amount;
+      return "Savings account: " + amount + "deposit";
+    }
+
+    return result;
   }
 
 }

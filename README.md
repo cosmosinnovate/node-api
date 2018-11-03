@@ -18,23 +18,30 @@ Apis are __endpoints__ interacts with the __client side__ and the __database__.
 
 ### EndPoints
 ```javascript
+
+/// http://localhost:8000/accounts?accountType=saving
 app.get('/accounts', (request, response) => {
-    /// TODO:
+    /// TODO: request.query
  });
 
+/// http://localhost:8000/deposit?deposit=200&accountType=saving
 app.post('/deposit', (request, response) => {
-   /// TODO:
+   /// TODO: request.body
  })
+
+///http://localhost:8000/balance?transfer=35&accountType=saving
 app.post('/transfer', (request, response) => {
-   /// TODO:
+   /// TODO: request.body
  })
 
+/// http://localhost:8000/withdraw?withdraw=20&accountType=saving
 app.post('/withdraw', (request, response) => {
-   /// TODO:
+   /// TODO: request.body
  })
 
-app.post('/balance', (request, response) => {
-   /// TODO:
+/// http://localhost:8000/balance?accountType=saving
+app.get('/balance', (request, response) => {
+   /// TODO: request.query
  })
 
 ```
@@ -114,8 +121,6 @@ describe('Bank testing', () => {
 });
 
 ```
-
-
 
 ## How to run and test this project:
 There are three ways to test this project.
