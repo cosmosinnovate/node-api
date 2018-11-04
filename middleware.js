@@ -19,6 +19,7 @@
      deposit
      balance
      saving
+
 *******************************/
 
 class Bank {
@@ -34,33 +35,28 @@ class Bank {
     return this.checking;
   }
 
-  withdraw(amount, acctType) {
+  withdraw(amount, accountType) {
     /// withdraw money from checking | saving accounts
-    if (acctType === 'checking') {
+    if (accountType === 'checking') {
       if (amount < this.checking) {
         this.checking -= amount;
-        return "Successful";
+        return `Successful withdrawal from ${accountType}`;
       }
       if (amount > this.checking) {
-        return "Insufficient amount";
+        return `Insufficient amount in ${accountType}`;
       }
     }
 
-    if (acctType === 'saving') {
+    if (accountType === 'saving') {
       if (amount < this.savings) {
         this.savings -= amount;
-        return "Successful";
+        return `Successful withdrawal from ${accountType}`;
       }
       if (amount > this.savings) {
-        return "Insufficient amount";
+        return `Insufficient amount in ${accountType}`;
       }
     }
     return;
-  }
-
-
-  saving() {
-    return this.savings;
   }
 
   balance(accountType) {
@@ -79,29 +75,29 @@ class Bank {
   }
 
 
-  transfer(amount, acctType) {
+  transfer(amount, accountType) {
     /// Transfer money to another account
     let result = "Error";
 
-    if (acctType === 'checking') {
+    if (accountType === 'checking') {
       if (amount > this.checking) {
         result = 'Insufficient funds';
       }
       if (amount < this.checking) {
-        this.checking += amount;
-        this.savings -= amount;
-        return 'Successful transfer to checking';
+        this.checking -= amount;
+        this.savings += amount;
+        return `Successful transfer to ${accountType}`;
       }
     }
 
-    if (acctType === 'saving') {
+    if (accountType === 'saving') {
       if (amount > this.savings) {
         result = 'Insufficient funds';
       }
       if (amount < this.savings) {
-        this.savings += amount;
-        this.checking -= amount;
-        return 'Successful transfer to savings';
+        this.savings -= amount;
+        this.checking += amount;
+        return `Successful transfer to ${accountType}`;
       }
     }
     return result;
@@ -110,16 +106,15 @@ class Bank {
   deposit(amount, accountType) {
     /// deposit money to either saving | checking account
     let result = "Error";
-    console.log(amount, accountType);
 
     if (accountType === 'checking') {
         this.checking += amount;
-        return "Checking account: " + amount + "deposit";
+        return  `${accountType} account: ${amount}`;
     }
 
     if (accountType === 'saving')  {
       this.savings += amount;
-      return "Savings account: " + amount + "deposit";
+      return  `${accountType} account: ${amount}`;
     }
 
     return result;

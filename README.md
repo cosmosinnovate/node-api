@@ -22,11 +22,19 @@ Apis are __endpoints__ interacts with the __client side__ and the __database__.
 /// http://localhost:8000/accounts?accountType=saving
 app.get('/accounts', (request, response) => {
     /// TODO: request.query
+
+    /// Test using Jasmine
+
+    /// Test using Postman
  });
 
 /// http://localhost:8000/deposit?deposit=200&accountType=saving
 app.post('/deposit', (request, response) => {
    /// TODO: request.body
+
+   /// Test using Jasmine
+
+   /// Test using Postman
  })
 
 ///http://localhost:8000/balance?transfer=35&accountType=saving
@@ -37,11 +45,19 @@ app.post('/transfer', (request, response) => {
 /// http://localhost:8000/withdraw?withdraw=20&accountType=saving
 app.post('/withdraw', (request, response) => {
    /// TODO: request.body
+
+   /// Test using Jasmine
+
+   /// Test using Postman
  })
 
 /// http://localhost:8000/balance?accountType=saving
 app.get('/balance', (request, response) => {
    /// TODO: request.query
+
+   /// Test using Jasmine
+
+   /// Test using Postman
  })
 
 ```
@@ -95,8 +111,8 @@ Modules required to make test happen
 ``` javascript
 
 describe('Bank testing', () => {
-  let saving = 'saving';
-  let checking = 'checking';
+
+  /// Initialize all that is needed here to carry the tests.
 
   beforeAll((done) => {
      /// account.setIntitialAmount(200);
@@ -124,6 +140,14 @@ describe('Bank testing', () => {
 
 ## How to run and test this project:
 There are three ways to test this project.
-* UnitTests: This is the most common ones when it comes to TDD (Test driven development)
-* Postman: This is also very common when you are testing your API. Because you definitely want to know if your API is doing what it is suppose to do.
-* Curl: Curl is another way you can use to run test. In my opinion, if you learned curl very well, anything is possible.
+* Jasmine UnitTests (above): This is the most common ones when it comes to TDD (Test driven development)
+* Postman (Download postman first): This is also very common when you are testing your API. Because you definitely want to know if your API is doing what it is suppose to do.
+* Curl below: Curl is another way you can use to run test. In my opinion, if you learned curl very well, anything is possible.
+
+
+### Curl commands: Run the app first. node app.js
+* curl --data "transfer=90&accountType=saving" http://localhost:8000/transfer
+* curl --data "deposit=90&accountType=saving" http://localhost:8000/deposit
+* curl --data "withdraw=90&accountType=saving" http://localhost:8000/withdraw
+* curl --data "deposit=90&accountType=checking" http://localhost:8000/deposit
+* curl --data "accountType=checking" http://localhost:8000/balance

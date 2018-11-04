@@ -3,7 +3,8 @@ const Express = require('express');
 const app = Express();
 const bodyParser = require('body-parser');
 const Bank = require('./middleware');
-let account = new Bank();
+let account = new Bank(1200);
+
 
 
 app.use((request, response, next) => {
@@ -15,53 +16,101 @@ app.use((request, response, next) => {
   next();
 });
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/json' }));
 
 
-app.get('/test', (request, response) => {
-   response.status(500).json({'message': 'sucker man'});
-});
-
-
 app.post('/deposit', (request, response) => {
   /// call the middleware here | deposite functionality
-  response.status(200).json(
-    {
-      'deposit': account.deposit(parseInt(request.body.deposit), request.body.accountType)
-    });
+
+  /**
+
+    Test only
+
+  */
+  request.body.deposit = 90;
+  request.body.accountType = 'checking';
+  response.status(200).send(request.body)
+
+  /**
+
+    Use with Postman
+
+  **/
+  // response.status(200).json(
+  //   {
+  //     'deposit': account.deposit(parseInt(request.body.deposit), request.body.accountType)
+  // });
 
 });
 
 app.post('/withdraw', (request, response) => {
   /// call middleware here withdraw functionality
-  response.status(200).json(
-    {
-      'withdraw': account.withdraw(parseInt(request.body.withdraw), request.body.accountType)
-    });
+
+  /**
+
+    Test only
+
+  */
+  request.body.withdraw = 90;
+  request.body.accountType = 'checking';
+  response.status(200).send(request.body)
+
+  /**
+
+    Use with Postman
+
+  **/
+  // response.status(200).json(
+  //   {
+  //     'withdraw': account.withdraw(parseInt(request.body.withdraw), request.body.accountType)
+  // });
 
 });
 
 app.post('/transfer', (request, response) => {
   /// call middleware here | transfer funds functionality
-  response.status(200).json(
-    {
-      'transfer': account.transfer(parseInt(request.body.transfer), request.body.accountType)
-    }
-  );
+
+  /**
+
+    Test only
+
+  */
+  request.body.transfer = 90;
+  request.body.accountType = 'checking';
+  response.status(200).send(request.body)
+
+  /**
+
+    Use with Postman
+
+  **/
+  // response.status(200).json(
+  //   {
+  //     'transfer': account.transfer(parseInt(request.body.transfer), request.body.accountType)
+  //   }
+  // );
 
 });
 
 app.get('/balance', (request, response) => {
   /// call the middleware here | balance functionality
-  console.log(request.query);
-  response.status(200).json(
-    {
-      'balance': account.balance(request.query.accountType)
-    });
+
+  /// Test only with Jasmine
+  request.query.accountType = 'saving';
+  response.status(200).send(request.query)
+
+  /**
+
+    Use with Postman
+
+  **/
+  // response.status(200).json(
+  //   {
+  //     'balance': account.balance(request.query.accountType)
+  //   });
 
 });
 
