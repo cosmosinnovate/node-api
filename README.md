@@ -1,5 +1,38 @@
 # Node-API | Middleware | UnitTests | Curl commands
 
+### Getting started:
+* First clone this repo to your local machine then
+* cd into it
+* Instal packages:
+``` javascript
+$npm install
+
+ ```
+* then run npm test for tests:
+
+* then comment out:
+``` javascript
+
+request.body.withdraw = 90;
+request.body.accountType = 'checking';
+response.status(200).send(request.body)
+
+```
+
+* And uncomment:
+``` javascript
+
+// response.status(200).json(
+//   {
+//     'withdraw': account.withdraw(parseInt(request.body.withdraw),request.body.accountType)
+// });
+
+```
+* Finally, run
+```javascript
+$node app.js
+```
+
 ## This application has three parts.
 * API routes
 * Middleware
