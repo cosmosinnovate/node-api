@@ -25,9 +25,9 @@
 class Bank {
 
   constructor(amount = 0) {
-    this.accountId = null;
-    this.checking = amount;
-    this.savings = 0;
+    this.accountId = ''; ///Hash key
+    this.checking = amount; /// int -- will use float or double later
+    this.savings = 0; ///int -- will use float or double later
   }
 
   setIntitialAmount(amount) {

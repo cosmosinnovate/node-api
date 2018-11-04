@@ -115,9 +115,9 @@ This design is a way to get started quickly but obviously __not__ the best way t
 ```javascript
 class Bank {
   constructor(amount = 0) {
-    this.accountId = 0;
-    this.checking = amount;
-    this.saving = 0;
+    this.accountId = ''; ///Hash key
+    this.checking = amount; /// int -- will use float or double later
+    this.savings = 0; ///int -- will use float or double later
   }
 
   setIntitialAmount(amount) {
