@@ -10,8 +10,13 @@ $npm install
  ```
 * then run npm test for tests:
 
-* then comment out:
+* then comment out this piece of code inside app.js
 ``` javascript
+
+/**
+  Test only
+  Comment out later once everything looks good
+*/
 
 request.body.withdraw = 90;
 request.body.accountType = 'checking';
@@ -19,8 +24,13 @@ response.status(200).send(request.body)
 
 ```
 
-* And uncomment:
+* Uncomment this piece of code with the comment:
 ``` javascript
+
+/**
+  Uncomment to
+  use with Postman
+**/
 
 // response.status(200).json(
 //   {

@@ -26,19 +26,18 @@ app.post('/deposit', (request, response) => {
   /// call the middleware here | deposite functionality
 
   /**
-
     Test only
-
+    Comment out later once everything looks good
   */
   request.body.deposit = 90;
   request.body.accountType = 'checking';
   response.status(200).send(request.body)
 
   /**
-
-    Use with Postman
-
+    Uncomment to
+    use with Postman
   **/
+
   // response.status(200).json(
   //   {
   //     'deposit': account.deposit(parseInt(request.body.deposit), request.body.accountType)
@@ -50,19 +49,18 @@ app.post('/withdraw', (request, response) => {
   /// call middleware here withdraw functionality
 
   /**
-
     Test only
-
+    Comment out later once everything looks good
   */
   request.body.withdraw = 90;
   request.body.accountType = 'checking';
   response.status(200).send(request.body)
 
   /**
-
-    Use with Postman
-
+    Uncomment to
+    use with Postman
   **/
+
   // response.status(200).json(
   //   {
   //     'withdraw': account.withdraw(parseInt(request.body.withdraw), request.body.accountType)
@@ -74,19 +72,18 @@ app.post('/transfer', (request, response) => {
   /// call middleware here | transfer funds functionality
 
   /**
-
     Test only
-
+    Comment out later once everything looks good
   */
   request.body.transfer = 90;
   request.body.accountType = 'checking';
   response.status(200).send(request.body)
 
   /**
-
-    Use with Postman
-
+    Uncomment to
+    use with Postman
   **/
+
   // response.status(200).json(
   //   {
   //     'transfer': account.transfer(parseInt(request.body.transfer), request.body.accountType)
@@ -98,15 +95,18 @@ app.post('/transfer', (request, response) => {
 app.get('/balance', (request, response) => {
   /// call the middleware here | balance functionality
 
-  /// Test only with Jasmine
+  /**
+    Test only
+    Comment out later once everything looks good
+  */
   request.query.accountType = 'saving';
   response.status(200).send(request.query)
 
   /**
-
-    Use with Postman
-
+    Uncomment to
+    use with Postman
   **/
+
   // response.status(200).json(
   //   {
   //     'balance': account.balance(request.query.accountType)
