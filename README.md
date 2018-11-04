@@ -3,7 +3,8 @@
 ### Getting started:
 * First clone this repo to your local machine then
 * cd into it
-* Instal packages:
+* Install packages:
+
 ``` javascript
 $npm install
 
