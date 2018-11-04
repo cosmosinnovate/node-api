@@ -146,8 +146,10 @@ There are three ways to test this project.
 
 
 ### Curl commands: Run the app first. node app.js
-* curl --data "transfer=90&accountType=saving" http://localhost:8000/transfer
-* curl --data "deposit=90&accountType=saving" http://localhost:8000/deposit
-* curl --data "withdraw=90&accountType=saving" http://localhost:8000/withdraw
-* curl --data "deposit=90&accountType=checking" http://localhost:8000/deposit
-* curl --data "accountType=checking" http://localhost:8000/balance
+``` curl
+curl --data "transfer=90&accountType=saving" http://localhost:8000/transfer
+curl --data "deposit=90&accountType=saving" http://localhost:8000/deposit
+curl --data "withdraw=90&accountType=saving" http://localhost:8000/withdraw
+curl --data "deposit=90&accountType=checking" http://localhost:8000/deposit
+curl --data "accountType=checking" http://localhost:8000/balance
+```
