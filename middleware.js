@@ -115,7 +115,6 @@ class Bank {
    */
   static async deposit(amount, accountType) {
     let result = "Error";
-
     switch (accountType) {
       case 'checking':
         this.checking += amount;
