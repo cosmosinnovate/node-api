@@ -6,11 +6,10 @@
  * Create our middleware
  * 
  * Bank class:
- * -------------------
- *  checking, savings, accountId
+ * => checking, savings, accountId
+ * 
  * propertities:
- *  ------------------------
- *   setIntitialAmount, withdraw, transfer, deposit, balance, saving
+ * => setIntitialAmount, withdraw, transfer, deposit, balance, saving
  *------------------------------------------------------------------*/
 
 class Bank {
@@ -116,7 +115,7 @@ class Bank {
    */
   static async deposit(amount, accountType) {
     let result = "Error";
-    
+
     switch (accountType) {
       case 'checking':
         this.checking += amount;
