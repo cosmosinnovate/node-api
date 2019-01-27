@@ -13,6 +13,9 @@
  *------------------------------------------------------------------*/
 
 class Bank {
+
+  // Added account Id later to make a transaction between two people.
+  
   constructor(amount = 0) {
     this.accountId = ''; ///Hash key
     this.checking = amount; /// int -- will use float or double later
