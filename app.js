@@ -47,7 +47,6 @@ app.post('/deposit', (request, response) => {
 
 app.post('/withdraw', (request, response) => {
   /// call middleware here withdraw functionality
-
   /**
     Test only
     Comment out later once everything looks good

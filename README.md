@@ -1,19 +1,29 @@
 # Node-API | Middleware | UnitTests | Curl commands
 
-### Getting started:
+Game plan
+
+This tutorial will introduce the idea Restful api Architecture
+
+---
+Building middleware and testing it.
+
+---
+Then take our middleware object and turn it into a smart contract for blockchain banking.
+
+* Test the bank Middleware
 * First clone this repo to your local machine then
 * cd into it
 * Install packages:
 
 ``` javascript
 $npm install
+```
 
- ```
 * then run npm test for tests:
 
 * then comment out this piece of code inside app.js
-``` javascript
 
+``` javascript
 /**
   Test only
   Comment out later once everything looks good
@@ -21,11 +31,12 @@ $npm install
 
 request.body.withdraw = 90;
 request.body.accountType = 'checking';
-response.status(200).send(request.body)
+response.status(200).send(request.body);
 
 ```
 
 * Uncomment this piece of code with the comment:
+
 ``` javascript
 
 /**
@@ -39,28 +50,33 @@ response.status(200).send(request.body)
 // });
 
 ```
+
 * Finally, run
+
 ```javascript
 $node app.js
 ```
 
-## This application has three parts.
+## This application has three parts
+
 * API routes
 * Middleware
 * UnitTests
 
-
 ## API routes
+
 Apis are __endpoints__ interacts with the __client side__ and the __database__.
 (eg. Mongodb, Postgres, or CouchDB etc).
 [API](https://github.com/Cosmos-it/node-api/blob/master/app.js)
 
-### API Modules:
+### API Modules
+
 * express
 * middleware (bank class)
 * BodyParser: body-parser extract the entire body portion of an incoming request stream and exposes it on req.body
 
 ### EndPoints
+
 ```javascript
 
 /// http://localhost:8000/accounts?accountType=saving
@@ -107,11 +123,13 @@ app.get('/balance', (request, response) => {
 ```
 
 ## Middleware
+
 The business logics or the class etc.
 This design is a way to get started quickly but obviously __not__ the best way to go about.
 [Middleware](https://github.com/Cosmos-it/node-api/blob/master/middleware.js)
 
-### Bank class:
+### Bank class
+
 ```javascript
 class Bank {
   constructor(amount = 0) {
@@ -144,11 +162,12 @@ class Bank {
 ```
 
 ## UnitTests
+
 This is where you can start to test your middleware and/api routes.
 [UnitTests](https://github.com/Cosmos-it/node-api/blob/master/spec/app.spec.js)
 
-### UnitTests
 Modules required to make test happen
+
 * request
 * middleware
 
@@ -182,14 +201,16 @@ describe('Bank testing', () => {
 
 ```
 
-## How to run and test this project:
+## How to run and test this project
+
 There are three ways to test this project.
+
 * Jasmine UnitTests (above): This is the most common ones when it comes to TDD (Test driven development)
 * Postman (Download postman first): This is also very common when you are testing your API. Because you definitely want to know if your API is doing what it is suppose to do.
 * Curl below: Curl is another way you can use to run test. In my opinion, if you learned curl very well, anything is possible.
 
-
 ### Curl commands: Run the app first. node app.js
+
 ``` curl
 curl --data "transfer=90&accountType=saving" http://localhost:8000/transfer
 curl --data "deposit=90&accountType=saving" http://localhost:8000/deposit
